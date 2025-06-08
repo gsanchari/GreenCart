@@ -6,7 +6,7 @@ import '../stylesheet/Navbar.css';
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
-  const {navigate, user, setUser, setShowUserLogin, searchQuery, setSearchQuery} = useAppContext();
+  const {navigate, user, setUser, setShowUserLogin, searchQuery, setSearchQuery,  getCartCount} = useAppContext();
 
   const logout = async () => {
     setUser(null);
@@ -39,7 +39,7 @@ const Navbar = () => {
 
         <div onClick={()=> navigate("/cart")} className="cart">
           <i className="ri-shopping-cart-2-line"></i>
-          <button className="cart-button">3</button>
+          <button className="cart-button">{getCartCount()}</button>
         </div>
 
         {!user ? (
@@ -57,9 +57,17 @@ const Navbar = () => {
       </div>
 
     {/* For Mobil Menu */}
-      <button onClick={() => setOpen(!open)} className="menu-button" aria-label="Menu">
-        <i className="ri-align-right"></i>
-      </button>
+    <div className='manu-bar-mobile'>
+        <div onClick={()=> navigate("/cart")} className="cart">
+          <i className="ri-shopping-cart-2-line"></i>
+          <button className="cart-button">{getCartCount()}</button>
+        </div>
+
+        <button onClick={() => setOpen(!open)} className="menu-button" aria-label="Menu">
+            <i className="ri-align-right"></i>
+        </button>
+    </div>
+      
 
     { open && (
         <div className={`mobile-menu ${open ? 'open' : ''}`}>

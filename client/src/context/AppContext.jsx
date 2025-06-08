@@ -62,12 +62,33 @@ export const AppContextProvider = ({ children }) => {
     
   }
 
+  //get cart item count
+  const getCartCount = ()=>{
+    let totalCount =0;
+    for(const item in cartItems){
+      totalCount +=cartItems[item];
+    }
+    return totalCount;
+  }
+
+  // Get cart total amount
+const getCartAmount = () => {
+  let totalAmount = 0;
+  for (const itemId in cartItems) {
+    const itemInfo = products.find((product) => product._id === itemId);
+    if (itemInfo && cartItems[itemId] > 0) {
+      totalAmount += itemInfo.offerPrice * cartItems[itemId];
+    }
+  }
+  return Math.floor(totalAmount * 100) / 100; // Rounds to 2 decimal places
+};
+
   useEffect(()=>{
     fetchProducts();
   },[])
 
   const value = { navigate, user, setUser, isSeller, setIsSeller, showUserLogin, setShowUserLogin, products, currency, addToCart,
-        cartItems, updateCartItem, removeFromCart, searchQuery, setSearchQuery};
+        cartItems, updateCartItem, removeFromCart, searchQuery, setSearchQuery, getCartAmount, getCartCount};
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
