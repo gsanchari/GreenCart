@@ -69,7 +69,7 @@ const Cart = () => {
                             </div>
                         </div>
                         <p className="text-center">{currency}{product.offerPrice * product.quantity}</p>
-                        <button onClick={()=> removeFromCart()} className="remove-btn">
+                        <button onClick={()=> removeFromCart(product._id)} className="remove-btn">
                             <i className="ri-close-line"></i>  
                         </button>
                     </div>)
