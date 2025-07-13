@@ -71,7 +71,7 @@ const AddProduct = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select Category</option>
-                {categories.map(()=>(
+                {categories.map((item, index)=>(
                   <option key={index} value={item.path}>{item.path}</option>
                 ))}
             </select>
@@ -110,100 +110,102 @@ const AddProduct = () => {
       </div>
 
       <style>{`
-        .add-product-container {
-          flex: 1;
-          height: 95vh;
-          overflow-y: auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
+  .add-product-container {
+    flex: 1;
+    height: 85vh;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        .add-product-form {
-          padding: 1rem;
-          max-width: 640px;
-          display: flex;
-          flex-direction: column;
-          gap: 1.25rem;
-        }
+  .add-product-form {
+    padding: 1rem;
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-        @media (min-width: 768px) {
-          .add-product-form {
-            padding: 2.5rem;
-          }
-        }
+  @media (min-width: 768px) {
+    .add-product-form {
+      padding: 2rem;
+    }
+  }
 
-        .label {
-          font-size: 1rem;
-          font-weight: 500;
-        }
+  .label {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
 
-        .image-upload-area {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          margin-top: 0.5rem;
-          align-items: center;
-        }
+  .image-upload-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    align-items: center;
+  }
 
-        .upload-preview {
-          max-width: 6rem;
-          cursor: pointer;
-        }
+  .upload-preview {
+    max-width: 5rem;
+    cursor: pointer;
+  }
 
-        .form-group {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-          max-width: 100%;
-        }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 
-        .input-field {
-          padding: 0.5rem 0.75rem;
-          border-radius: 0.375rem;
-          border: 1px solid rgba(107, 114, 128, 0.4);
-          outline: none;
-        }
+  .input-field {
+    padding: 0.45rem 0.65rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    outline: none;
+    font-size: 0.9rem;
+  }
 
-        @media (min-width: 768px) {
-          .input-field {
-            padding: 0.625rem 0.75rem;
-          }
-        }
+  @media (min-width: 768px) {
+    .input-field {
+      padding: 0.55rem 0.75rem;
+    }
+  }
 
-        .textarea {
-          resize: none;
-        }
+  .textarea {
+    resize: none;
+  }
 
-        .price-fields {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          align-items: flex-start;
-        }
+  .price-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
 
-        .form-group.small {
-          flex: 1;
-          min-width: 8rem;
-        }
+  .form-group.small {
+    flex: 1;
+    min-width: 7rem;
+  }
 
-        .submit-button {
-          padding: 0.6rem 1.5rem;
-          background-color: #4fbf8b;
-          color: white;
-          font-weight: 500;
-          border: none;
-          border-radius: 6px;
-          font-size: 1rem;
-          cursor: pointer;
-          width: 110px;
-        }
+  .submit-button {
+    padding: 0.5rem 1.25rem;
+    background-color: #4fbf8b;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: 100px;
+    align-self: flex-start;
+  }
 
-        .submit-button:hover {
-          background-color:  #c6f2e9;
-          color:black;
-        }
-      `}</style>
+  .submit-button:hover {
+    background-color: #c6f2e9;
+    color: black;
+  }
+`}</style>
     </>
   );
 };

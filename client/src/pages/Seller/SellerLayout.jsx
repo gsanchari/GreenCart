@@ -85,7 +85,7 @@ const SellerLayout = () => {
         .sidebar {
           width: 3.25rem;
           border-right: 1px solid #d1d5db;
-          height: 500px;
+          height: 95vh;
           font-size: 0.95rem;
           padding-top: 0.8rem;
           display: flex;
