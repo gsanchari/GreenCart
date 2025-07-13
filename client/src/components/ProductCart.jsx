@@ -24,7 +24,7 @@ const ProductCart = ({product}) => {
             </div>
             <div className="product-price-container">
                 <p className="product-price">
-                    {currency}${product.offerPrice}{" "} <span className="product-price-original">{currency}${product.price}</span>
+                    {currency}{product.offerPrice}{" "} <span className="product-price-original">{currency}{product.price}</span>
                 </p>
                 <div onClick={(e) => { e.stopPropagation() }} className="text-indigo-500">
                     {!cartItems[product._id] ? (
